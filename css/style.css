@@ -95,3 +95,7 @@ body {
         background-color: green;
     }
 }
+
+.radius-2xl {
+    border-radius: 2rem;
+}
