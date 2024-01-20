@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation {
+    background-color: #3452DB;
+
+}
+
+.text-white {
+    color: white
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.p-10 {
+    padding: 10px
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.list-no-bullet {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-2 {
+    gap: 2em
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.w-40 {
+    width: 20em
+}
+
+.p-2 {
+    padding: 8px;
+}
