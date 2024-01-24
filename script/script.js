@@ -13,9 +13,10 @@
 
 // C# , JAVA, C++, C <---- strictly type
 
-const form = document.getElementById("sizeForm")
-const checked = form.querySelector('input[name=size]:checked');
-console.log(checked.value)
+const form = document.getElementById("sizeForm");
+let sizes = null
+
+
 
 const items = localStorage.getItem("item") ? JSON.parse(localStorage.getItem("item")) : []
 
@@ -29,8 +30,9 @@ if (spanNumberOfItems) {
 
 
 function addItemsToCart({ name, price }) {
-    console.log(name)
-    const dress = { name, price, index: numberOfItems + 1 }
+    sizes = form.querySelector('input[name=size]:checked');
+    console.log(sizes)
+    const dress = { name, price, index: numberOfItems + 1, size: sizes.value }
     items.push(dress)
     localStorage.setItem("item", JSON.stringify(items))
     numberOfItems += 1
@@ -63,15 +65,20 @@ function getItemFromStorage() {
     const allItems = JSON.parse(localStorage.getItem('item'))
 
     let itemElements = ""
-    allItems.map(({ name, price, index }) => {
+    allItems.map(({ name, price, index, size }) => {
         console.log(index)
         itemElements += `<div id='item-${index}'>
         <span>Item Name: ${name}</span>
         <span id="itemName"></span>
+        
         </div>
         <div>
             <span>Price: </span>
             <span id="price"> ${price}</span>
+        </div>
+        <div>
+        <span>Size: </span>
+        <span id="price"> ${size}</span>
         </div>
         
         <button onClick="deleteItemFromStorage(${index})">Delete</button>
@@ -132,7 +139,7 @@ if (orderContainer) {
 
     allOrders.forEach((order) => {
         let itemElements = ""
-        order['items'].map(({ name, price, index }) => {
+        order['items'].map(({ name, price, index, size }) => {
 
             itemElements += `<div id='item-${index}'>
             <span>Item Name: ${name}</span>
@@ -141,6 +148,10 @@ if (orderContainer) {
             <div>
                 <span>Price: </span>
                 <span id="price"> ${price}</span>
+            </div>
+            <div>
+                <span>Size: </span>
+                <span id="size"> ${size}</span>
             </div>
         `
         })
