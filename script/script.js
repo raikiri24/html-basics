@@ -13,6 +13,10 @@
 
 // C# , JAVA, C++, C <---- strictly type
 
+const form = document.getElementById("sizeForm")
+const checked = form.querySelector('input[name=size]:checked');
+console.log(checked.value)
+
 const items = localStorage.getItem("item") ? JSON.parse(localStorage.getItem("item")) : []
 
 let numberOfItems = items.length
@@ -113,8 +117,8 @@ let allOrders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localSto
 function checkout() {
 
     const order = { total: calculateTotal(), dateOrdered: new Date(), items }
-    allItems.push(order) // pushed into the array of orders
-    localStorage.setItem("orders", JSON.stringify(allItems))
+    allOrders.push(order) // pushed into the array of orders
+    localStorage.setItem("orders", JSON.stringify(allOrders))
     localStorage.removeItem('item')
     window.location.href = "/profile.html";
 
@@ -155,6 +159,7 @@ if (orderContainer) {
 
 
 
+
 let totalAmount = 0
 
 
@@ -189,3 +194,5 @@ thirdItem.addEventListener("change", () => {
     }
     total.innerText = totalAmount
 })
+
+

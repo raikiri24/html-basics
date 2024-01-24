@@ -29,6 +29,26 @@
     </nav>
     <div class="p-10">
         <p>DRESS</p>
+        <form id="sizeForm">
+            <fieldset>
+                <legend>Select a size:</legend>
+
+                <div>
+                    <input type="radio" id="small" name="size" value="Small" checked />
+                    <label for="huey">Small</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="medium" name="size" value="Medium" />
+                    <label for="dewey">Medium</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="large" name="size" value="Large" />
+                    <label for="louie">Large</label>
+                </div>
+            </fieldset>
+        </form>
         <button id="add-to-cart" onclick="addItemsToCart({name: 'dress', price: 150})">Add to cart</button>
     </div>
 
